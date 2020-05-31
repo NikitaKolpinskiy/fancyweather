@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Fancy Weather</title>
+</head>
+<body>
+    <div id="errorWrapper" class="error-wrapper hidden">
+        <div class="error-container">
+            <span class="error-text">Please write city in search panel</span>
+            <button id="errorButton" class="error-button">OK</button>
+        </div>
+    </div>
+    <main class="main-container">
+        <div class="button-container">
+            <div class="button-section"> 
+                <button id="spinner" class="button button-update">
+                    <div class="spinner"></div>
+                </button> 
+               <div class="language-menu">
+                    <button id="dropDownButton" class="button drop-down">
+                        <span>En</span>
+                        <div class="arrow-down"></div>
+                    </button>
+                    <div id="dropDownMenu" class="drop-down-menu">
+                        <button data-language="en" class="active drop-down-language_button button">En</button>
+                        <button data-language="ru" class="drop-down-language_button button">Ru</button>
+                        <button data-language="be" class="drop-down-language_button button">Be</button>
+                    </div>
+                </div>
+                <div id="temperatureContainer" class="temperature-container">
+                    <button id="fahrenheit" class="button temperature--F" data-hide-temp="temperature_c" data-show-temp="temperature_f">°F</button>
+                    <button id="celsius" class=" active button temperature--C" data-show-temp="temperature_c" data-hide-temp="temperature_f">°C</button>
+                </div>
+            </div>      
+            <div class="search-panel">
+                <input id="citySearch" class="search-input" type="search" required placeholder="Search city">
+                <button data-i18n="search" id="searchButton" class="button search-button">
+                    Search
+                </button>
+                <button data-voice="inactive" id="voiceSearch" class="voice-search"></button>
+                <button data-voice="active" id="activeVoiceSearch" class="active-voice_search hidden"></button>
+            </div>
+        </div>
+       <div class="main-section">
+        <div class="main-section_weather">
+            <div class="city-section">
+                <h2 data-language="en" class="city-country_data">MINSK, BELARUS</h2>
+                <h2 data-language="ru" class="city-country_data hidden">MINSK, BELARUS</h2>
+                <h2 data-language="be" class="city-country_data hidden">MINSK, BELARUS</h2>
+                <span id="currentDate" class="current-date"></span>
+            </div>
+            <div class="weather-section">
+                <div class="weather-temperature_container">
+                    <span id="weatherForToday" class="temperature_c weather-temperature"></span>
+                    <span id="fahrenheitTempToday" class="temperature_f weather-temperature hidden"></span>
+                </div>
+                <div class="weather-container">
+                    <img id="currentWeatherImage" class="weather-description" src="./images/cloudy.png" alt="cloudy">
+                    <ul class="weather-information">
+                        <li id="overcast">OVERCAST</li>
+                        <li >
+                           <span data-i18n="feelsLike">FEELS LIKE: </span><span id="weatherToday" class="temperature_c" ></span>
+                                <span id="fahrenheitFeel" class="temperature_f hidden"></span>
+                            </li>
+                        <li ><span data-i18n="wind">WIND:</span><span id="weatherWind">3</span> M/S</li>
+                        <li ><span data-i18n="humidity">HUMIDITY:</span> <span id="weatherHumidity">63</span>%</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="weather-prediction">
+                <ul id="forecastDays" class="weather-prediction_day">
+                    <li id="forecastDayTemplate">
+                        <div class="weekday">
+                            <span data-language="en" class="weather-day week-day_data">
+                                
+                            </span>
+                            <span data-language="ru" class="weather-day week-day_data hidden">
+                                
+                            </span>
+                            <span data-language="be" class="weather-day week-day_data hidden">
+
+                            </span>
+                        </div>
+                        <div class="weather-forecast">
+                            <img id="weatherImage" src="./images/cloudy.png" alt="cloudy">
+                        </div>
+                        <div class="weather-forecast_temperature">
+                                <div class="temperature_c">
+                                    <span class="temperature-c-day">12</span>
+                                    <span class="weather-night_temperature temperature-c-night">
+                                    12°
+                                    </span>
+                                </div>
+                                <div class="temperature_f hidden">
+                                    <span class="temperature-f-day"></span>
+                                    <span class="weather-night_temperature temperature-f-night"></span>
+                                </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="map-container">
+            <div id="googleMap" class="main-map">
+
+            </div>
+            <div class="map-coordinates">
+                <div>
+                   <span data-i18n="latitude">Latitude:</span><span id="uiLatitude"></span>'
+                </div>
+                <div>
+                   <span data-i18n="longitude">Longitude:</span><span id="uiLongitude"></span>'
+                </div>
+            </div>
+        </div>
+       </div>
+    </main>
+    <script src="./js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV5m2uR8UZ-GsENZjg8p6YAVSrKU1s6P4&callback=loadMap"
+    async defer></script>
+</body>
+
+</html>
