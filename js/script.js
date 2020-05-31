@@ -233,7 +233,7 @@ function sendWeatherRequest(method, url) {
             }
         }
         xhr.setRequestHeader("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com");
-        xhr.setRequestHeader("x-rapidapi-key", "3905bfdf36msh090caf57a095918p1c66bbjsn940ceebb994f");
+        xhr.setRequestHeader("x-rapidapi-key", "13d02c0ec3mshcf8aa15a6cd5345p169bdbjsn04f0073db977");
         xhr.send(data)
     })
 }
